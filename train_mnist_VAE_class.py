@@ -149,12 +149,11 @@ class VAE():
         else:
             vae = Model(x, x_decoded_mean_squash)
 
-        # GAN discriminator and generator trained separately... can this be trained separately?
         # I need the outputs to be there how do I make sure the size is correct?? But [x, x_c] was ok?  they have same batch size....I think the batch size of conv2d_4 is missing 
 
-       vae.compile(optimizer=tf.keras.optimizers.RMSprop(learning_rate = 0.001), loss=vae_loss)# lr = 0.001 # 0.01 was too big.... I tried several times and gave NAN
+        vae.compile(optimizer=tf.keras.optimizers.RMSprop(learning_rate = 0.001), loss=vae_loss)# lr = 0.001 # 0.01 was too big.... I tried several times and gave NAN
         
-       return vae
+        return vae
 
 
 if __name__ == "__main__":

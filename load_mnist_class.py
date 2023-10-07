@@ -37,6 +37,7 @@ x_test = x_test.astype('float32') / 255.
 y_train = np.array(to_categorical(y_train_o, num_classes=num_classes))
 y_test = np.array(to_categorical(y_test_o, num_classes=num_classes))
 
+# Writes outputs in sample_results folder
 for i in range(num_preds):
 	result = vae.predict([(x_test).reshape(x_test.shape + (1,)), y_test])
 	picture = np.zeros((result.shape[1], result.shape[2] * 2))
